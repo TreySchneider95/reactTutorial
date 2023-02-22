@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import Table from './Table';
 import Form from './Form';
 
+function Welcome(props){
+  return <h1>Welcome {props.name}</h1>
+}
 
 class App extends Component {
     state = {
@@ -47,6 +50,7 @@ class App extends Component {
     const { characters } = this.state
       return (
         <div className="container">
+            <Welcome name="Trey"/>
             <Table characterData={characters} 
             removeCharacter={this.removeCharacter} 
             />

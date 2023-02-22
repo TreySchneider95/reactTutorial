@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Table from './Table';
 import Form from './Form';
 import Clock from './Clock';
+import dbCharacters from './db';
 
 function Welcome(props){
   return <h1>Welcome {props.name}</h1>
@@ -9,28 +10,7 @@ function Welcome(props){
 
 class App extends Component {
     state = {
-        characters:[
-            {
-              name: 'Charlie',
-              job: 'Janitor',
-            },
-            {
-              name: 'Mac',
-              job: 'Bouncer',
-            },
-            {
-              name: 'Dee',
-              job: 'Aspring actress',
-            },
-            {
-              name: 'Dennis',
-              job: 'Bartender',
-            },
-            {
-              name: 'Link',
-              job: 'Accountant',
-            },
-          ]
+        characters: dbCharacters
     }
 
     removeCharacter = (index) => {
@@ -52,7 +32,7 @@ class App extends Component {
       return (
         <div className="container">
             <Welcome name="Trey"/>
-            <Clock date={new Date().toLocaleTimeString()}/>
+            <Clock />
             <Table characterData={characters} 
             removeCharacter={this.removeCharacter} 
             />

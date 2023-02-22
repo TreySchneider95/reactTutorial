@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Table from './Table';
 import Form from './Form';
+import Clock from './Clock';
 
 function Welcome(props){
   return <h1>Welcome {props.name}</h1>
@@ -51,6 +52,7 @@ class App extends Component {
       return (
         <div className="container">
             <Welcome name="Trey"/>
+            <Clock date={new Date().toLocaleTimeString()}/>
             <Table characterData={characters} 
             removeCharacter={this.removeCharacter} 
             />

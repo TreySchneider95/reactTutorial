@@ -25,20 +25,30 @@ const TableBody = (props) => {
     return <tbody>{rows}</tbody>
   }
 
+const DeleteAll = (props)=>{
+  return (
+    <button onClick={()=>props.deleteAll()}>DeleteAll</button>
+  )
+}
+
 class Table extends Component {
     render()
     {
     const { 
       characterData, 
       removeCharacter,
+      deleteAll
     } = this.props
       return (
-        <table>
-          <TableHeader />
-          <TableBody characterData={characterData} 
-          removeCharacter={removeCharacter} 
-          />
-        </table>
+        <div>
+          <table>
+            <TableHeader />
+            <TableBody characterData={characterData} 
+            removeCharacter={removeCharacter} 
+            />
+          </table>
+          <DeleteAll deleteAll={deleteAll}/>
+        </div>
       )
     }
   }

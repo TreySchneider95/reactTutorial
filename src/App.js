@@ -1,12 +1,9 @@
 import React, {Component} from 'react';
 import Table from './Table';
 import Form from './Form';
-import Clock from './Clock';
+import Welcome from './Welcome';
 import dbCharacters from './db';
 
-function Welcome(props){
-  return <h1>Welcome {props.name}</h1>
-}
 
 class App extends Component {
     state = {
@@ -27,14 +24,20 @@ class App extends Component {
       this.setState({characters:[...this.state.characters, character]})
     }
 
+    deleteAll = ()=>{
+      this.setState({
+        characters: []
+      })
+    }
+
     render() {
     const { characters } = this.state
       return (
         <div className="container">
-            <Welcome name="Trey"/>
-            <Clock />
+            <Welcome />
             <Table characterData={characters} 
-            removeCharacter={this.removeCharacter} 
+            removeCharacter={this.removeCharacter}
+            deleteAll={this.deleteAll}
             />
             <br/>
             <h4>Add Character</h4>
